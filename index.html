@@ -1,4 +1,3 @@
- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,11 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -22,7 +17,7 @@ body {
     overflow-x: hidden;
 }
 
-/* PASSWORD SCREEN */
+/* LOCK SCREEN */
 #lockScreen {
     height: 100vh;
     display: flex;
@@ -33,16 +28,10 @@ body {
     text-align: center;
 }
 
-#lockScreen h1 {
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 20px;
-}
-
 input {
     padding: 12px 20px;
     border-radius: 30px;
     border: none;
-    outline: none;
     font-size: 1rem;
     text-align: center;
 }
@@ -59,64 +48,100 @@ button {
 }
 
 /* MAIN CONTENT */
-#mainContent {
-    display: none;
-}
+#mainContent { display:none; }
 
 section {
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
 }
 
 .hero {
-    background: linear-gradient(to bottom, #000000cc, #000000cc),
-                url('your-photo.jpg') center/cover no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+/* SLIDESHOW */
+.slideshow {
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:-1;
+}
+
+.slideshow img {
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0;
+    animation: slideShow 15s infinite;
+}
+
+.slideshow img:nth-child(1) { animation-delay:0s; }
+.slideshow img:nth-child(2) { animation-delay:5s; }
+.slideshow img:nth-child(3) { animation-delay:10s; }
+
+@keyframes slideShow {
+    0% { opacity:0; }
+    10% { opacity:1; }
+    30% { opacity:1; }
+    40% { opacity:0; }
+    100% { opacity:0; }
 }
 
 h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-}
-
-p {
-    margin-top: 20px;
-    font-size: 1.1rem;
+    font-family:'Playfair Display', serif;
+    font-size:2.5rem;
 }
 
 .letter {
-    background: #1a1a1a;
-    padding: 30px;
-    border-radius: 20px;
-    max-width: 600px;
+    background:#1a1a1a;
+    padding:30px;
+    border-radius:20px;
+    max-width:600px;
 }
 
 .counter {
-    font-size: 2rem;
-    margin-top: 20px;
+    font-size:2rem;
+    margin-top:20px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- PASSWORD SCREEN -->
+<!-- 🎵 Background Music -->
+<audio id="bgMusic" loop>
+    <source src="romantic-song.mp3" type="audio/mp3">
+</audio>
+
+<!-- 🔐 Lock Screen -->
 <div id="lockScreen">
     <h1>🔐 Enter Our Special Password</h1>
     <input type="password" id="passwordInput" placeholder="Enter Password">
     <button onclick="checkPassword()">Unlock ❤️</button>
 </div>
 
-<!-- MAIN WEBSITE -->
+<!-- 💕 Main Website -->
 <div id="mainContent">
 
 <section class="hero">
+    <div class="slideshow">
+        <!-- 📸 Replace with your photos -->
+        <img src="photo1.jpg">
+        <img src="photo2.jpg">
+        <img src="photo3.jpg">
+    </div>
+
     <div>
-        <h1>Two Years. One Love. Forever ❤️</h1>
-        <p>Happy 2nd Wedding Anniversary, My Kuttyma 💕</p>
+        <h1>Happy 2nd Anniversary My Kuttyma ❤️</h1>
+        <p>Two Years. One Love. Forever To Go 💕</p>
     </div>
 </section>
 
@@ -124,9 +149,9 @@ p {
     <div class="letter">
         <h1>My Love Letter 💌</h1>
         <p>
-        These two years with you have been the most beautiful part of my life.
-        You are my peace, my happiness, and my forever.
-        No matter what life brings, I will always choose you.
+        These two years with you have been magical.
+        You are my peace, my strength, and my forever.
+        Every day with you feels like a blessing.
         I love you endlessly, Kuttyma ❤️
         </p>
     </div>
@@ -147,18 +172,20 @@ function checkPassword() {
     if (password === "Kuttyma") {
         document.getElementById("lockScreen").style.display = "none";
         document.getElementById("mainContent").style.display = "block";
+        document.getElementById("bgMusic").play();
     } else {
         alert("Wrong Password ❤️ Try Again");
     }
 }
 
-// CHANGE THIS DATE
+// 💍 Change Wedding Date Here
 const weddingDate = new Date("2024-02-21");
 const today = new Date();
 const diffTime = today - weddingDate;
-const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+const diffDays = Math.floor(diffTime / (1000*60*60*24));
 
-document.getElementById("counter").innerHTML = diffDays + " Days Together 💕";
+document.getElementById("counter").innerHTML =
+diffDays + " Days Together 💕";
 </script>
 
 </body>
