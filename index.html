@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>For My Kutty 💗</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{
@@ -9,13 +10,13 @@ margin:0;
 font-family:'Segoe UI',sans-serif;
 text-align:center;
 color:white;
-background: linear-gradient(-45deg,#ff4e8a,#ff9ecf,#ff6ec7,#ff3d77);
-background-size:400% 400%;
-animation:bg 12s ease infinite;
+background: linear-gradient(-45deg,#ff0066,#ff4da6,#ff66cc,#ff1a75,#ff3399);
+background-size:500% 500%;
+animation:bgMove 12s ease infinite;
 overflow:hidden;
 }
 
-@keyframes bg{
+@keyframes bgMove{
 0%{background-position:0% 50%;}
 50%{background-position:100% 50%;}
 100%{background-position:0% 50%;}
@@ -27,7 +28,14 @@ height:100vh;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-padding:20px;
+padding:30px;
+animation:fade 1s ease;
+overflow-y:auto;
+}
+
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
 }
 
 .active{display:flex;}
@@ -38,7 +46,7 @@ font-size:18px;
 border:none;
 border-radius:30px;
 background:white;
-color:#ff3d77;
+color:#ff0066;
 margin-top:20px;
 cursor:pointer;
 transition:0.3s;
@@ -48,33 +56,22 @@ button:hover{
 transform:scale(1.1);
 }
 
-.option{
-display:block;
-margin:6px;
-padding:10px;
-background:white;
-color:#ff3d77;
-border-radius:25px;
-cursor:pointer;
-width:240px;
-}
-
 img{
 width:260px;
 height:360px;
 object-fit:cover;
 border-radius:20px;
-box-shadow:0 0 30px white;
+box-shadow:0 0 40px white;
 }
 
 .final-text{
-font-size:55px;
+font-size:65px;
 font-weight:bold;
-animation:float 2s infinite;
-text-shadow:0 0 20px white;
+animation:floatText 2s infinite;
+text-shadow:0 0 30px white,0 0 60px pink;
 }
 
-@keyframes float{
+@keyframes floatText{
 0%{transform:translateY(0);}
 50%{transform:translateY(-25px);}
 100%{transform:translateY(0);}
@@ -88,7 +85,7 @@ text-shadow:0 0 20px white;
 <source src="song.mp3" type="audio/mpeg">
 </audio>
 
-<!-- PAGE 1 PASSWORD -->
+<!-- PASSWORD PAGE -->
 <div class="page active">
 <h2>Enter Password 💗</h2>
 <input type="password" id="pass">
@@ -96,73 +93,99 @@ text-shadow:0 0 20px white;
 <button onclick="checkPass()">Open My Heart</button>
 </div>
 
-<!-- PAGE 2 SLIDESHOW -->
+<!-- SLIDESHOW PAGE -->
 <div class="page">
 <img id="slide" src="IMG_20250408_180630.jpg">
 <button onclick="nextPage()">Next</button>
 </div>
 
-<!-- PAGE 3 ENGLISH LOVE LETTER -->
+<!-- BIG ENGLISH LOVE LETTER -->
 <div class="page">
-<h2>My Love Letter 💌</h2>
-<p>
-My dearest Kutty,  
-From the moment you came into my life, everything became brighter and more meaningful.  
-You are my happiness, my comfort, my forever person.  
-Your love fills my heart with peace every single day.  
+<h2>My Eternal Love Letter 💌</h2>
+<p style="max-width:900px; line-height:1.8; font-size:18px;">
 
-Our little daughter is the most beautiful proof of our love.  
-She is our miracle, our blessing, our sweetest bond.  
-Seeing you as a loving parent makes me admire you even more.  
+My dearest Kutty,
 
-No matter what life brings, I promise to stand beside you always.  
-In every lifetime, I will choose you again and again.  
-You are my today, my tomorrow, my always.
+From the moment you entered my life, everything became brighter and more meaningful.  
+You are not just my love — you are my peace, my strength, my comfort, and my forever home.  
+
+Every time you smile, my heart feels lighter.  
+Every time you speak, I feel understood.  
+You are the only person who knows my silence and still hears my heart.  
+
+Our beautiful daughter is the most precious blessing of our love.  
+She is the living proof that our hearts beat together.  
+In her smile, I see our future.  
+In her laughter, I see our dreams growing.  
+
+Through every joy and every challenge,  
+I promise to stand beside you.  
+I promise to hold your hand.  
+I promise to choose you again and again.  
+
+You are my today.  
+You are my tomorrow.  
+You are my always.  
+
 </p>
 <button onclick="nextPage()">Next</button>
 </div>
 
-<!-- PAGE 4 NEW TAMIL POEM -->
+<!-- NEW TAMIL POEM -->
 <div class="page">
-<h2>என் இதயத்தின் பாடல் 💕</h2>
-<p>
-உன் பெயர் சொல்லும் தருணம்  
-என் இதயம் துடிக்கிறது இனிமையாக…  
+<h2>நீ என் வாழ்வின் திசை 💕</h2>
+<p style="max-width:900px; line-height:2; font-size:18px;">
 
-உன் அருகில் இருக்கும் ஒவ்வொரு நொடியும்  
-என் வாழ்வின் பொக்கிஷமாகிறது…  
+வாழ்க்கை ஒரு நீண்ட பயணம் என்றால்  
+அதில் எனக்கு வழிகாட்டும் ஒளி நீ தான்…  
 
-நம்முடைய மகள்  
-நம் காதலின் அழகான மலர்…  
+சில நேரங்களில் நான் தடுமாறினேன்…  
+சில நேரங்களில் நான் மௌனமாகி போனேன்…  
+அந்த நேரங்களில் கூட  
+என் கையை பிடித்து நிற்கும் நிழல் நீ…  
 
-உன் சிரிப்பே என் சக்தி  
-உன் அன்பே என் உலகம்…  
+உன் பெயரை நினைத்தாலே  
+என் இதயம் அமைதியாகிறது…  
+உன் சிரிப்பு நினைவுக்கு வந்தாலே  
+என் மனம் மெதுவாக மலர்கிறது…  
 
-உன்னோடு வாழும் இந்த வாழ்க்கை  
-என் கனவின் நிறைவேற்றம்…  
+நம்முடைய மகள் —  
+நம் இருவரின் உயிர் இணைப்பு…  
+அவள் சிரிப்பில் நம் அன்பு ஒலிக்கிறது…  
+அவள் கண்களில் நம் எதிர்காலம் எழுதப்பட்டுள்ளது…  
+
+நான் உன்னை காதலிப்பது  
+ஒரு காரணத்துக்காக அல்ல…  
+ஒரு நாளுக்காக அல்ல…  
+ஒரு சூழ்நிலைக்காக அல்ல…  
+
+நீ என்னுடன் இருப்பதற்காக அல்ல…  
+நீ என்னுள் இருப்பதற்காக…  
+
+உன் அருகில் நான்  
+பாதுகாப்பாக உணர்கிறேன்…  
+உன் வார்த்தையில் நான்  
+ஆறுதலை காண்கிறேன்…  
+
+நீ இல்லாமல் நான் வாழ முடியும்…  
+ஆனால் முழுமையாக வாழ முடியாது…  
+
+என் இதயத்தில்  
+உனக்காக ஒதுக்கப்பட்ட இடம்  
+என்றும் நிரந்தரம்…  
+
+இந்த வாழ்க்கை எங்கே கொண்டு சென்றாலும்  
+நான் திரும்பி பார்க்கும் இடம்  
+உன் அருகே தான் இருக்கும்…  
+
+நீ என் காதல் மட்டும் அல்ல…  
+நீ என் வாழ்க்கையின் திசை…  
+
 </p>
 <button onclick="nextPage()">Next</button>
 </div>
 
-<!-- PAGE 5 QUIZ -->
-<div class="page">
-<h2>Love Quiz 💞</h2>
-
-<div class="option">1. Who loves you forever? 💗 - You</div>
-<div class="option">2. What are we? 💍 - Soulmates</div>
-<div class="option">3. Our daughter is symbol of? 👶 - True Love</div>
-<div class="option">4. Who completes me? - You</div>
-<div class="option">5. My safe place? - Your arms</div>
-<div class="option">6. How long together? - Forever</div>
-<div class="option">7. My favorite name? - Kutty</div>
-<div class="option">8. Stronger than problems? - Our love</div>
-<div class="option">9. Who is my world? - You</div>
-<div class="option">10. I will love you? - Always</div>
-
-<button onclick="nextPage()">Next</button>
-</div>
-
-<!-- PAGE 6 FINAL -->
+<!-- FINAL PAGE -->
 <div class="page">
 <div class="final-text">
 I LOVE YOU AS ALWAYS KUTTY 💗
@@ -175,8 +198,7 @@ let current=0;
 let music=document.getElementById("music");
 
 function checkPass(){
-let p=document.getElementById("pass").value;
-if(p==="Kuttyma"){
+if(document.getElementById("pass").value==="Kuttyma"){
 music.play();
 pages[current].classList.remove("active");
 current++;
@@ -194,11 +216,7 @@ pages[current].classList.add("active");
 }
 }
 
-let images=[
-"IMG_20250408_180630.jpg",
-"Snapchat-497653818.jpg"
-];
-
+let images=["IMG_20250408_180630.jpg","Snapchat-497653818.jpg"];
 let i=0;
 setInterval(function(){
 let slide=document.getElementById("slide");
