@@ -3,97 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy 2nd Anniversary ❤️</title>
+<title>Shamyutha ❤️ Sarathi</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
-
-body {
-    font-family:'Poppins', sans-serif;
-    background:#000;
-    color:white;
-    overflow-x:hidden;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;background:#000;color:#fff;overflow-x:hidden}
 
 /* LOCK SCREEN */
-#lockScreen {
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+#lockScreen{
+height:100vh;display:flex;flex-direction:column;
+justify-content:center;align-items:center;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+text-align:center;
 }
+input{padding:12px 20px;border-radius:30px;border:none;margin-top:20px;text-align:center}
+button{margin-top:15px;padding:10px 25px;border-radius:30px;border:none;background:white;color:#ff4d6d;font-weight:bold;cursor:pointer}
+#mainContent{display:none}
 
-input {
-    padding:12px 20px;
-    border-radius:30px;
-    border:none;
-    margin-top:20px;
-    text-align:center;
-}
+/* HERO + SLIDESHOW */
+.hero{position:relative;height:100vh;display:flex;justify-content:center;align-items:center;text-align:center;overflow:hidden}
+.slideshow{position:absolute;width:100%;height:100%;top:0;left:0;z-index:-1}
+.slideshow img{position:absolute;width:100%;height:100%;object-fit:cover;opacity:0;animation:fadeSlide 18s infinite}
+.slideshow img:nth-child(1){animation-delay:0s}
+.slideshow img:nth-child(2){animation-delay:6s}
+.slideshow img:nth-child(3){animation-delay:12s}
+@keyframes fadeSlide{0%{opacity:0}10%{opacity:1}30%{opacity:1}40%{opacity:0}100%{opacity:0}}
 
-button {
-    margin-top:15px;
-    padding:10px 25px;
-    border-radius:30px;
-    border:none;
-    background:white;
-    color:#ff4d6d;
-    font-weight:bold;
-    cursor:pointer;
-}
+/* HEARTS */
+.heart{position:fixed;bottom:-10px;color:#ff4d6d;animation:floatUp linear forwards}
+@keyframes floatUp{to{transform:translateY(-100vh);opacity:0}}
 
-/* MAIN CONTENT */
-#mainContent { display:none; }
+/* SECTIONS */
+section{padding:80px 20px;text-align:center}
+h1{font-family:'Playfair Display',serif;font-size:2.5rem;margin-bottom:20px}
+.letter{max-width:800px;margin:auto;background:#111;padding:40px;border-radius:20px;line-height:1.8;font-size:1.1rem}
 
-/* FLOATING HEARTS */
-.heart {
-    position:fixed;
-    bottom:-10px;
-    color:#ff4d6d;
-    font-size:20px;
-    animation: floatUp 6s linear infinite;
-}
-
-@keyframes floatUp {
-    0% { transform:translateY(0); opacity:1; }
-    100% { transform:translateY(-100vh); opacity:0; }
-}
-
-section {
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:40px;
-}
-
-h1 {
-    font-family:'Playfair Display', serif;
-    font-size:2.5rem;
-    margin-bottom:20px;
-}
-
-.letter {
-    max-width:800px;
-    background:#111;
-    padding:40px;
-    border-radius:20px;
-    line-height:1.8;
-    font-size:1.1rem;
-}
-
-/* FIREWORKS */
-canvas {
-    position:fixed;
-    top:0;
-    left:0;
-    pointer-events:none;
-}
+/* FIREWORK */
+canvas{position:fixed;top:0;left:0;pointer-events:none}
 </style>
 </head>
 
@@ -104,75 +52,65 @@ canvas {
 </audio>
 
 <div id="lockScreen">
-    <h1>🔐 Enter Our Special Password</h1>
-    <input type="password" id="passwordInput" placeholder="Enter Password">
-    <button onclick="checkPassword()">Unlock ❤️</button>
+<h1>🔐 Enter Our Special Password</h1>
+<input type="password" id="passwordInput" placeholder="Enter Password">
+<button onclick="checkPassword()">Unlock ❤️</button>
 </div>
 
 <div id="mainContent">
 
-<section>
-<div>
-<h1>Happy 2nd Anniversary My Kuttyma ❤️</h1>
-<p>Two years down… Forever to go 💕</p>
+<div class="hero">
+<div class="slideshow">
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
 </div>
-</section>
+
+<div>
+<h1>Shamyutha ❤️ Sarathi</h1>
+<p>Married on 08 February 2024 💍</p>
+<p>Celebrating 2 Beautiful Years ❤️</p>
+<p id="todayDate"></p>
+<p id="marriageCounter"></p>
+</div>
+</div>
 
 <section>
 <div class="letter">
-
-<h1>My Heartfelt Love Letter 💌</h1>
-
+<h1>To My Forever, Sarathi 💌</h1>
 <p>
-My dearest Kuttyma,
+My dearest Sarathi,
 
-Two years ago, we didn’t just get married — we began a forever story that I thank God for every single day.  
-These two years have been the most beautiful chapter of my life.
+On 08.02.2024, I didn’t just marry you…  
+I married my best friend, my strength, and my greatest blessing.
 
-From the smallest smiles you give me…  
-to the way you stand beside me in every situation…  
-you have become my strength, my peace, my happiness, and my home.
+These two years have been the most beautiful journey of my life.  
+Through every smile, every challenge, every dream — you stood beside me.
 
-When life feels heavy, your voice calms me.  
-When I feel lost, your love guides me.  
-When I feel tired, your hug gives me energy again.
+You understand my silence.  
+You support my dreams.  
+You protect my heart.
 
-I still remember our wedding day like it was yesterday.  
-The way you looked at me… that look still lives in my heart.  
+When life feels heavy, you give me peace.  
+When I feel unsure, you give me confidence.  
+When I feel tired, your hug feels like home.
 
-Every laugh we shared.  
-Every silly fight.  
-Every late-night talk.  
-Every dream we planned together.  
+Thank you for loving me the way you do.  
+Thank you for choosing me every single day.
 
-All of it made these 730 days magical.
+If I could live this life again,  
+I would still choose you — without hesitation.
 
-You are not just my wife.  
-You are my best friend.  
-My safe place.  
-My biggest blessing.
-
-I promise to love you louder in your bad days.  
-I promise to protect your smile.  
-I promise to stand beside you no matter what life brings.  
-
-If I could choose again in every lifetime…  
-I would still choose you.  
-Again. And again. And again.
-
-Happy 2nd Anniversary, my Kuttyma ❤️  
-Forever yours,
-Your Husband 💕
+Happy 2nd Wedding Anniversary ❤️  
+Forever yours,  
+Shamyutha 💕
 </p>
-
 </div>
 </section>
 
 <section>
-<div>
-<h1>Surprise For You 🎆</h1>
-<button onclick="startFireworks()">Click For Surprise ❤️</button>
-</div>
+<h1>Click For Your Surprise 🎆</h1>
+<button onclick="startFireworks()">Celebrate ❤️</button>
 </section>
 
 </div>
@@ -180,47 +118,55 @@ Your Husband 💕
 <canvas id="fireworks"></canvas>
 
 <script>
-function checkPassword() {
-    var password = document.getElementById("passwordInput").value;
-    if(password === "Kuttyma"){
-        document.getElementById("lockScreen").style.display="none";
-        document.getElementById("mainContent").style.display="block";
-        document.getElementById("bgMusic").play();
-        createHearts();
-    } else {
-        alert("Wrong Password ❤️");
-    }
+function checkPassword(){
+if(document.getElementById("passwordInput").value==="Kuttyma"){
+document.getElementById("lockScreen").style.display="none";
+document.getElementById("mainContent").style.display="block";
+document.getElementById("bgMusic").play();
+createHearts();
+}else{alert("Wrong Password ❤️")}
 }
 
-/* FLOATING HEARTS */
+/* DATE + COUNTER */
+const weddingDate=new Date("2024-02-08");
+const today=new Date();
+const options={day:'numeric',month:'long',year:'numeric'};
+document.getElementById("todayDate").innerHTML=
+"Today is "+today.toLocaleDateString('en-GB',options)+" ❤️";
+const diffTime=today-weddingDate;
+const diffDays=Math.floor(diffTime/(1000*60*60*24));
+document.getElementById("marriageCounter").innerHTML=
+"We have been married for "+diffDays+" beautiful days 💕";
+
+/* HEARTS */
 function createHearts(){
-    setInterval(()=>{
-        const heart=document.createElement("div");
-        heart.classList.add("heart");
-        heart.innerHTML="❤️";
-        heart.style.left=Math.random()*100+"vw";
-        heart.style.fontSize=(Math.random()*20+10)+"px";
-        heart.style.animationDuration=(Math.random()*3+3)+"s";
-        document.body.appendChild(heart);
-        setTimeout(()=>{heart.remove();},6000);
-    },300);
+setInterval(()=>{
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*20+15)+"px";
+heart.style.animationDuration=(Math.random()*4+3)+"s";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),7000);
+},300);
 }
 
-/* SIMPLE FIREWORKS */
+/* FIREWORK */
 const canvas=document.getElementById("fireworks");
 const ctx=canvas.getContext("2d");
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 
 function startFireworks(){
-    for(let i=0;i<100;i++){
-        let x=Math.random()*canvas.width;
-        let y=Math.random()*canvas.height;
-        ctx.fillStyle="hsl("+Math.random()*360+",100%,50%)";
-        ctx.beginPath();
-        ctx.arc(x,y,3,0,Math.PI*2);
-        ctx.fill();
-    }
+for(let i=0;i<250;i++){
+let x=Math.random()*canvas.width;
+let y=Math.random()*canvas.height;
+ctx.fillStyle="hsl("+Math.random()*360+",100%,50%)";
+ctx.beginPath();
+ctx.arc(x,y,3,0,Math.PI*2);
+ctx.fill();
+}
 }
 </script>
 
