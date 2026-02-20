@@ -2,176 +2,246 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Happy 2nd Anniversary ❤️</title>
+<title>For My Love ❤️</title>
+
 <style>
-body{
-margin:0;
-font-family: 'Comic Sans MS', cursive;
-background: linear-gradient(135deg,#ff9a9e,#fad0c4);
-text-align:center;
-color:#fff;
-overflow-x:hidden;
+body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    text-align:center;
+    background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+    color:white;
+    overflow-x:hidden;
 }
-.page{display:none;padding:30px;}
-.active{display:block;}
-button{
-padding:12px 20px;
-margin:10px;
-border:none;
-border-radius:25px;
-background:#ff4b7d;
-color:white;
-font-size:16px;
-cursor:pointer;
+
+.container {
+    padding:20px;
 }
-input{
-padding:10px;
-border-radius:20px;
-border:none;
-text-align:center;
+
+input {
+    padding:10px;
+    border:none;
+    border-radius:20px;
 }
-.heart{
-font-size:60px;
-animation:beat 1s infinite;
+
+button {
+    padding:10px 20px;
+    border:none;
+    border-radius:20px;
+    background:white;
+    color:#ff4d6d;
+    font-weight:bold;
+    margin-top:10px;
+    cursor:pointer;
 }
-@keyframes beat{
-0%{transform:scale(1);}
-50%{transform:scale(1.2);}
-100%{transform:scale(1);}
+
+.hidden {
+    display:none;
 }
-.firework{
-position:fixed;
-font-size:30px;
-animation:explode 2s linear forwards;
+
+img {
+    width:200px;
+    border-radius:20px;
+    margin:10px;
+    box-shadow:0 0 20px pink;
+    animation: float 3s infinite ease-in-out alternate;
 }
-@keyframes explode{
-0%{transform:translateY(0);opacity:1;}
-100%{transform:translateY(-300px);opacity:0;}
+
+@keyframes float {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-15px); }
+}
+
+.letter {
+    background: rgba(255,255,255,0.2);
+    padding:20px;
+    border-radius:20px;
+    margin-top:20px;
+}
+
+.dance-text {
+    font-size:28px;
+    animation: bounce 1s infinite alternate, glow 2s infinite alternate;
+    margin-top:30px;
+}
+
+@keyframes bounce {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-15px); }
+}
+
+@keyframes glow {
+    from { text-shadow:0 0 5px pink; }
+    to { text-shadow:0 0 25px red; }
 }
 </style>
 </head>
 
 <body>
 
-<audio autoplay loop>
-<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-</audio>
+<div class="container">
 
-<!-- PAGE 1 -->
-<div class="page active" id="page1">
-<h1>Happy 2nd Wedding Anniversary 💕</h1>
-<p>Enter Password</p>
-<input type="password" id="pass">
-<br><br>
-<button onclick="checkPass()">Open My Heart</button>
-<p id="wrong" style="color:black;font-weight:bold;"></p>
+<!-- PASSWORD SECTION -->
+<div id="login">
+    <h2>Enter Password 💖</h2>
+    <input type="password" id="password">
+    <br>
+    <button onclick="checkPassword()">Open My Heart ❤️</button>
 </div>
 
-<!-- PAGE 2 -->
-<div class="page" id="page2">
-<h2>Our First Outing 💑</h2>
-<p>The day we stepped out together… my world changed forever ❤️</p>
-<button onclick="nextPage(3)">Next</button>
-</div>
+<!-- MAIN CONTENT -->
+<div id="mainContent" class="hidden">
 
-<!-- PAGE 3 -->
-<div class="page" id="page3">
-<h2>How much do you love me? 😜</h2>
-<button onclick="alert('Infinite infinity infinity ♾️💖')">Click to Answer</button>
+<h2>Our Beautiful Memories 💑</h2>
+
+<!-- Replace with your real image file names -->
+<img src="couple1.jpg">
+<img src="couple2.jpg">
+
+<!-- ENGLISH LOVE LETTER -->
+<div class="letter">
+<h3>💌 My Love Letter</h3>
+
+<p style="font-size:18px; line-height:1.8;">
+My love,
+
+From the day you entered my life, everything became brighter and more meaningful. You are my peace in chaos, my strength in weakness, and my happiness in every moment. Loving you feels natural and destined.
+
+And then we were blessed with our precious baby ❤️ — the most beautiful proof of our love. Seeing you as a parent makes me admire you even more. The way you care, protect, and smile at our baby fills my heart with pride and endless affection.
+
+Our little family is my greatest treasure. I promise to stand beside you in every season of life. No matter what happens, I will always choose you.
+
+You are my today, my tomorrow, and my forever.
+
+I love you as always, Mama ❤️
+</p>
+
 <br>
-<button onclick="nextPage(4)">Next</button>
-</div>
 
-<!-- PAGE 4 -->
-<div class="page" id="page4">
-<h2>Our Love Symbol</h2>
-<div class="heart">❤️</div>
-<button onclick="nextPage(5)">Next</button>
-</div>
+<!-- NEW TAMIL POEM -->
+<p style="font-size:18px; line-height:2;">
+உன் பெயரை சொல்லும் ஒவ்வொரு நொடிக்கும்  
+என் இதயம் ஒரு பாடல் பாடுகிறது…  
 
-<!-- PAGE 5 -->
-<div class="page" id="page5">
-<h2>Did you buy me a gift? 🎁</h2>
-<button onclick="noGift()">No</button>
-<button onclick="yesGift()">Yes</button>
-<p id="giftMsg"></p>
-<button onclick="nextPage(6)">Next</button>
-</div>
+நீ என் வாழ்க்கையில் வந்தது  
+ஒரு சாதாரண நாள் இல்லை —  
+அது என் விதி எழுதிய திருப்புமுனை…  
 
-<!-- PAGE 6 -->
-<div class="page" id="page6">
-<h2>My Love Letter 💌</h2>
-<p>
-From the day you entered my life,  
-every second became magical.  
-You are my strength, my peace,  
-my forever person ❤️
+உன் கண்களில் நான் பார்த்தது  
+என் எதிர்காலத்தின் ஒளி…  
+உன் கரங்களில் நான் உணர்ந்தது  
+என் உலகத்தின் பாதுகாப்பு…  
+
+நம்முடைய குழந்தை ❤️  
+நம் காதல் மலரின் இனிய வாசம்…  
+அவள்/அவன் சிரிப்பில்  
+நம் வாழ்க்கை முழுதும் ஒளிர்கிறது…  
+
+நீ அருகில் இருந்தால்  
+கஷ்டமும் இனிமையாகிறது…  
+நீ இல்லாத நொடிகள்  
+நிறமில்லா உலகம் போல…  
+
+உன் கையை பிடித்து  
+நாளையும்… நாளைக்கு அப்பாலும்…  
+என்றும் ஒன்றாய் நடக்க வேண்டும்…  
+
+நீ தான் என் மனதின் இசை…  
+நீ தான் என் உயிரின் துணை…  
+
+எப்போதும்…  
+என்றென்றும்…  
+I Love You Mama ❤️
 </p>
-<button onclick="nextPage(7)">Next</button>
+
 </div>
 
-<!-- PAGE 7 -->
-<div class="page" id="page7">
-<h2>English Poem 🌹</h2>
-<p>
-You are my today,  
-You are my tomorrow,  
-In your arms,  
-I forget all sorrow ❤️
-</p>
-<button onclick="nextPage(8)">Next</button>
+<!-- QUIZ SECTION -->
+<div class="letter">
+
+<h3>💞 A Little Love Quiz 💞</h3>
+
+<p>1. Who loves you the most? 😘</p>
+<button onclick="answer('correct')">You</button>
+<button onclick="answer('wrong')">Someone else</button>
+
+<br><br>
+
+<p>2. What are we forever? 💍</p>
+<button onclick="answer('correct')">Soulmates</button>
+<button onclick="answer('wrong')">Just friends</button>
+
+<br><br>
+
+<p>3. Who is the best parent to our baby? 👶❤️</p>
+<button onclick="answer('correct')">You</button>
+<button onclick="answer('wrong')">No idea</button>
+
+<br><br>
+
+<p>4. How long will we stay together? 💖</p>
+<button onclick="answer('correct')">Forever & Always</button>
+<button onclick="answer('wrong')">Few years</button>
+
+<br><br>
+
+<p>5. My favorite place? 🥰</p>
+<button onclick="answer('correct')">Beside You</button>
+<button onclick="answer('wrong')">Anywhere else</button>
+
+<p id="quizResponse" style="margin-top:20px; font-weight:bold;"></p>
+
 </div>
 
-<!-- PAGE 8 -->
-<div class="page" id="page8">
-<h2>தமிழ் கவிதை 🌸</h2>
-<p>
-நீ வந்த நாளில் என் வாழ்வு மலர்ந்தது,  
-உன் அன்பில் என் இதயம் நிறைந்தது ❤️
-</p>
-<button onclick="nextPage(9)">Next</button>
+<button onclick="finalSurprise()">Final Surprise 💖</button>
+
+<div id="finalMessage" class="hidden">
+    <h1 class="dance-text">💖 I Love You As Always Mama 💖</h1>
 </div>
 
-<!-- PAGE 9 -->
-<div class="page" id="page9">
-<h2>This is a small gift from your lovable pondati 💗</h2>
-<button onclick="fireworks()">Click for Surprise 🎆</button>
+</div>
 </div>
 
 <script>
-function checkPass(){
-let p=document.getElementById("pass").value;
-if(p==="KuttylovesKuttyma@8"){
-nextPage(2);
-}else{
-document.getElementById("wrong").innerHTML="💔 Wrong Password! Say I love you pondati 5 times!";
-}
+
+function checkPassword() {
+    var pass = document.getElementById("password").value;
+    if(pass === "Kuttyma") {
+        document.getElementById("login").style.display="none";
+        document.getElementById("mainContent").style.display="block";
+    } else {
+        alert("Wrong Password 💔");
+    }
 }
 
-function nextPage(num){
-document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
-document.getElementById("page"+num).classList.add("active");
+function answer(type) {
+    var response = document.getElementById("quizResponse");
+
+    if(type === "correct") {
+        response.innerHTML = "Awww 🥰 Correct! You know our love perfectly 💖";
+        response.style.color = "yellow";
+    } else {
+        response.innerHTML = "Ohhh nooo 😜 Wrong answer! Try again my love ❤️";
+        response.style.color = "white";
+    }
 }
 
-function noGift(){
-document.getElementById("giftMsg").innerHTML="Punishment 😈 Say I love you pondati 10 times!";
+function finalSurprise() {
+    document.getElementById("finalMessage").style.display="block";
+
+    for(let i=0;i<25;i++){
+        let heart=document.createElement("div");
+        heart.innerHTML="💖";
+        heart.style.position="fixed";
+        heart.style.left=Math.random()*window.innerWidth+"px";
+        heart.style.top=Math.random()*window.innerHeight+"px";
+        heart.style.fontSize="30px";
+        document.body.appendChild(heart);
+
+        setTimeout(()=>heart.remove(),2000);
+    }
 }
 
-function yesGift(){
-document.getElementById("giftMsg").innerHTML="Awwww ❤️ Love you as always! Now give me my gift 🎁";
-}
-
-function fireworks(){
-for(let i=0;i<20;i++){
-let heart=document.createElement("div");
-heart.innerHTML="❤️";
-heart.className="firework";
-heart.style.left=Math.random()*100+"%";
-heart.style.top="80%";
-document.body.appendChild(heart);
-setTimeout(()=>heart.remove(),2000);
-}
-}
 </script>
 
 </body>
