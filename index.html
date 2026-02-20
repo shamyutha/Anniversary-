@@ -1,25 +1,28 @@
+ 
 <!DOCTYPE html>
 <html>
 <head>
-<title>For My Kutty 💗</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Kutty 💗</title>
 
 <style>
 body{
 margin:0;
-font-family:'Segoe UI',sans-serif;
-color:white;
+font-family: 'Segoe UI', sans-serif;
 overflow:hidden;
-background: radial-gradient(circle at top left,#ff4da6,#ff0066,#99004d);
-animation: glowMove 6s ease infinite alternate;
+color:white;
+background: linear-gradient(-45deg,#ff2e78,#ff6fa5,#ff9ec4,#ff4e8a);
+background-size:400% 400%;
+animation:bgMove 8s ease infinite;
 }
 
-@keyframes glowMove{
-0%{filter:brightness(1);}
-100%{filter:brightness(1.2);}
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
-/* PAGE TRANSITION */
 .page{
 position:absolute;
 width:100%;
@@ -30,11 +33,11 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-padding:25px;
+text-align:center;
+padding:20px;
 transition:all 0.8s ease;
 opacity:0;
 transform:scale(0.9);
-text-align:center;
 overflow-y:auto;
 }
 
@@ -47,19 +50,17 @@ transform:scale(1);
 .page.exit{
 left:-100%;
 opacity:0;
-transform:scale(0.9);
 }
 
-/* BUTTON */
 button{
 padding:12px 25px;
 margin:10px;
-font-size:16px;
 border:none;
 border-radius:25px;
-cursor:pointer;
 background:white;
-color:#ff0066;
+color:#ff2e78;
+font-size:16px;
+cursor:pointer;
 box-shadow:0 0 20px white;
 transition:0.3s;
 }
@@ -68,53 +69,38 @@ button:hover{
 transform:scale(1.1);
 }
 
-.option{
-display:block;
-width:80%;
-max-width:300px;
-margin:8px auto;
-}
-
-/* IMAGE EFFECT */
 img{
-width:260px;
-height:360px;
+width:280px;
+height:380px;
 object-fit:cover;
 border-radius:20px;
-box-shadow:0 0 60px white;
-animation:pulse 2s infinite;
+box-shadow:0 0 50px white;
+transition:0.5s;
 }
 
-@keyframes pulse{
-0%{box-shadow:0 0 30px white;}
-50%{box-shadow:0 0 80px pink;}
-100%{box-shadow:0 0 30px white;}
-}
-
-/* FINAL FLOAT TEXT */
 .final-text{
-font-size:55px;
+font-size:50px;
 font-weight:bold;
-animation:floatText 2s infinite;
-text-shadow:0 0 40px white,0 0 80px pink;
+animation:float 2s infinite;
+text-shadow:0 0 30px white,0 0 60px pink;
 }
 
-@keyframes floatText{
+@keyframes float{
 0%{transform:translateY(0);}
-50%{transform:translateY(-20px);}
+50%{transform:translateY(-15px);}
 100%{transform:translateY(0);}
 }
 
-/* HEART RAIN */
 .heart{
 position:fixed;
-bottom:-20px;
-animation:floatUp 6s linear infinite;
+bottom:-10px;
+font-size:20px;
+animation:rise 6s linear infinite;
 }
 
-@keyframes floatUp{
-0%{transform:translateY(0);}
-100%{transform:translateY(-110vh);}
+@keyframes rise{
+0%{transform:translateY(0);opacity:1;}
+100%{transform:translateY(-100vh);opacity:0;}
 }
 </style>
 </head>
@@ -125,7 +111,7 @@ animation:floatUp 6s linear infinite;
 <source src="song.mp3" type="audio/mpeg">
 </audio>
 
-<!-- PASSWORD -->
+<!-- PASSWORD PAGE -->
 <div class="page active">
 <h2>Enter Password 💗</h2>
 <input type="password" id="pass">
@@ -133,9 +119,10 @@ animation:floatUp 6s linear infinite;
 <button onclick="checkPass()">Open My Heart</button>
 </div>
 
-<!-- SLIDESHOW -->
+<!-- PHOTO PAGE -->
 <div class="page">
-<img id="slide" src="IMG_20250408_180630.jpg">
+<h2>Our Beautiful Memories 💕</h2>
+<img id="slider" src="photo1.jpg">
 <button onclick="nextPage()">Next</button>
 </div>
 
@@ -147,34 +134,42 @@ animation:floatUp 6s linear infinite;
 <button id="nextBtn" onclick="nextQuestion()" style="display:none;">Next</button>
 </div>
 
-<!-- ENGLISH LETTER -->
+<!-- LOVE LETTER -->
 <div class="page">
 <h2>My Love Letter 💌</h2>
 <p style="max-width:800px;line-height:1.8;">
-My dearest Kutty,  
-You are my peace, my strength, my happiness.  
-Our daughter is the beautiful proof of our love.  
-In her smile I see our future.  
-I promise to stand beside you always,  
-to hold your hand through every joy and challenge.  
-You are my today, my tomorrow and my forever.
+My dearest Kutty,
+You are the reason my life feels complete.
+In your smile I find peace.
+In your eyes I find my world.
+Our daughter is the most beautiful proof of our love —
+a little heartbeat created from two souls that chose each other.
+No matter what life brings,
+I promise to stand beside you,
+protect you,
+respect you,
+and love you endlessly.
+You are my today, tomorrow, and forever.
 </p>
 <button onclick="nextPage()">Next</button>
 </div>
 
 <!-- TAMIL POEM -->
 <div class="page">
-<h2>நீ என் வாழ்வின் திசை 💕</h2>
+<h2>என் உயிரின் இசை 💕</h2>
 <p style="max-width:800px;line-height:2;">
-வாழ்க்கை ஒரு நீண்ட பயணம் என்றால்  
-அதில் எனக்கு வழிகாட்டும் ஒளி நீ தான்…  
-நம்முடைய மகள் நம் காதலின் உயிர்…  
-நீ என் வாழ்க்கையின் திசை…
+நீ சிரிக்கும் போது என் உலகம் ஒளிர்கிறது…
+நீ பேசும் போது என் இதயம் துடிக்கிறது…
+நம்முடைய மகள் நம் காதலின் உயிரான சாட்சி…
+உன் கை பிடித்து வாழ்க்கை முழுவதும் நடக்க
+என் மனம் என்றும் தயாராக இருக்கிறது…
+நீ என் வாழ்வின் இசை…
+நீ இல்லாமல் நான் இல்லை…
 </p>
 <button onclick="nextPage()">Next</button>
 </div>
 
-<!-- FINAL -->
+<!-- FINAL PAGE -->
 <div class="page">
 <div class="final-text">
 I LOVE YOU AS ALWAYS KUTTY 💗
@@ -186,17 +181,15 @@ let pages=document.querySelectorAll(".page");
 let current=0;
 let music=document.getElementById("music");
 
-/* PASSWORD */
 function checkPass(){
 if(document.getElementById("pass").value==="Kuttyma"){
 music.play();
 nextPage();
 }else{
-alert("Wrong Password 💔");
+alert("Wrong Password");
 }
 }
 
-/* PAGE TRANSITION */
 function nextPage(){
 pages[current].classList.remove("active");
 pages[current].classList.add("exit");
@@ -204,59 +197,55 @@ pages[current].classList.add("exit");
 setTimeout(()=>{
 pages[current].classList.remove("exit");
 current++;
-if(current < pages.length){
+if(current<pages.length){
 pages[current].classList.add("active");
 }
 },800);
 }
 
 /* SLIDESHOW */
-let images=["IMG_20250408_180630.jpg","Snapchat-497653818.jpg"];
+let images=["photo1.jpg","photo2.jpg","photo3.jpg"];
 let i=0;
-setInterval(function(){
-let slide=document.getElementById("slide");
-if(slide){
+setInterval(()=>{
+let slider=document.getElementById("slider");
+if(slider){
 i=(i+1)%images.length;
-slide.src=images[i];
+slider.src=images[i];
 }
 },2500);
 
 /* QUIZ */
-let quizData=[
-{question:"Who loves you forever? 💗",options:["Me 💕","Friends","Everyone","No one"]},
-{question:"What are we? 💍",options:["Strangers","Friends","Soulmates 💖","Neighbors"]},
-{question:"Our daughter is symbol of? 👶",options:["Luck","True Love 💞","Chance","Fate"]},
-{question:"Who completes me?",options:["You 💗","Work","Money","Sleep"]},
-{question:"My safe place?",options:["Home","Your arms 🤗","Temple","Silence"]},
-{question:"How long together?",options:["1 year","10 years","Forever 💍","Sometimes"]},
-{question:"My favorite name?",options:["Baby","Kutty 💕","Darling","Sweetie"]},
-{question:"Stronger than problems?",options:["Anger","Time","Our Love ❤️","Distance"]},
-{question:"Who is my world?",options:["Family","You 💘","Work","Friends"]},
-{question:"I will love you?",options:["Sometimes","Forever 💗","Today only","Maybe"]}
+let quiz=[
+"Who loves you forever? 💗",
+"What are we? 💍",
+"Our daughter is symbol of? 👶",
+"Who completes me?",
+"My safe place?",
+"How long together?",
+"My favorite name?",
+"Stronger than problems?",
+"Who is my world?",
+"I will love you?"
 ];
 
-let currentQuestion=0;
+let currentQ=0;
 
 function loadQuestion(){
-let q=quizData[currentQuestion];
-document.getElementById("question").innerText=q.question;
-let optionsBox=document.getElementById("options");
-optionsBox.innerHTML="";
-q.options.forEach(option=>{
+document.getElementById("question").innerText=quiz[currentQ];
+let options=document.getElementById("options");
+options.innerHTML="";
+["Me 💕","You 💖","Forever 💞","Always ❤️"].forEach(text=>{
 let btn=document.createElement("button");
-btn.className="option";
-btn.innerText=option;
-btn.onclick=function(){
-document.getElementById("nextBtn").style.display="inline-block";
-};
-optionsBox.appendChild(btn);
+btn.innerText=text;
+btn.onclick=()=>{document.getElementById("nextBtn").style.display="inline-block";};
+options.appendChild(btn);
 });
 }
 
 function nextQuestion(){
-currentQuestion++;
+currentQ++;
 document.getElementById("nextBtn").style.display="none";
-if(currentQuestion<quizData.length){
+if(currentQ<quiz.length){
 loadQuestion();
 }else{
 nextPage();
@@ -265,17 +254,15 @@ nextPage();
 
 setTimeout(loadQuestion,1000);
 
-/* HEART RAIN */
-setInterval(function(){
+/* HEARTS */
+setInterval(()=>{
 let heart=document.createElement("div");
 heart.className="heart";
 heart.innerHTML="💗";
 heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(Math.random()*25+15)+"px";
 document.body.appendChild(heart);
 setTimeout(()=>heart.remove(),6000);
 },400);
-
 </script>
 
 </body>
