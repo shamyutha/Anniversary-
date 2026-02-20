@@ -1,247 +1,212 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>For My Love ❤️</title>
+<title>For My Kutty 💗</title>
 
 <style>
-body {
-    margin:0;
-    font-family: Arial, sans-serif;
-    text-align:center;
-    background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
-    color:white;
-    overflow-x:hidden;
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+text-align:center;
+color:white;
+background: linear-gradient(-45deg,#ff4e8a,#ff9ecf,#ff6ec7,#ff3d77);
+background-size:400% 400%;
+animation:bg 12s ease infinite;
+overflow:hidden;
 }
 
-.container {
-    padding:20px;
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
-input {
-    padding:10px;
-    border:none;
-    border-radius:20px;
+.page{
+display:none;
+height:100vh;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
 }
 
-button {
-    padding:10px 20px;
-    border:none;
-    border-radius:20px;
-    background:white;
-    color:#ff4d6d;
-    font-weight:bold;
-    margin-top:10px;
-    cursor:pointer;
+.active{display:flex;}
+
+button{
+padding:12px 28px;
+font-size:18px;
+border:none;
+border-radius:30px;
+background:white;
+color:#ff3d77;
+margin-top:20px;
+cursor:pointer;
+transition:0.3s;
 }
 
-.hidden {
-    display:none;
+button:hover{
+transform:scale(1.1);
 }
 
-img {
-    width:200px;
-    border-radius:20px;
-    margin:10px;
-    box-shadow:0 0 20px pink;
-    animation: float 3s infinite ease-in-out alternate;
+.option{
+display:block;
+margin:6px;
+padding:10px;
+background:white;
+color:#ff3d77;
+border-radius:25px;
+cursor:pointer;
+width:240px;
 }
 
-@keyframes float {
-    from { transform: translateY(0px); }
-    to { transform: translateY(-15px); }
+img{
+width:260px;
+height:360px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:0 0 30px white;
 }
 
-.letter {
-    background: rgba(255,255,255,0.2);
-    padding:20px;
-    border-radius:20px;
-    margin-top:20px;
+.final-text{
+font-size:55px;
+font-weight:bold;
+animation:float 2s infinite;
+text-shadow:0 0 20px white;
 }
 
-.dance-text {
-    font-size:28px;
-    animation: bounce 1s infinite alternate, glow 2s infinite alternate;
-    margin-top:30px;
-}
-
-@keyframes bounce {
-    from { transform: translateY(0px); }
-    to { transform: translateY(-15px); }
-}
-
-@keyframes glow {
-    from { text-shadow:0 0 5px pink; }
-    to { text-shadow:0 0 25px red; }
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-25px);}
+100%{transform:translateY(0);}
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<audio id="music" loop>
+<source src="song.mp3" type="audio/mpeg">
+</audio>
 
-<!-- PASSWORD SECTION -->
-<div id="login">
-    <h2>Enter Password 💖</h2>
-    <input type="password" id="password">
-    <br>
-    <button onclick="checkPassword()">Open My Heart ❤️</button>
-</div>
-
-<!-- MAIN CONTENT -->
-<div id="mainContent" class="hidden">
-
-<h2>Our Beautiful Memories 💑</h2>
-
-<!-- Replace with your real image file names -->
-<img src="couple1.jpg">
-<img src="couple2.jpg">
-
-<!-- ENGLISH LOVE LETTER -->
-<div class="letter">
-<h3>💌 My Love Letter</h3>
-
-<p style="font-size:18px; line-height:1.8;">
-My love,
-
-From the day you entered my life, everything became brighter and more meaningful. You are my peace in chaos, my strength in weakness, and my happiness in every moment. Loving you feels natural and destined.
-
-And then we were blessed with our precious baby ❤️ — the most beautiful proof of our love. Seeing you as a parent makes me admire you even more. The way you care, protect, and smile at our baby fills my heart with pride and endless affection.
-
-Our little family is my greatest treasure. I promise to stand beside you in every season of life. No matter what happens, I will always choose you.
-
-You are my today, my tomorrow, and my forever.
-
-I love you as always, Mama ❤️
-</p>
-
+<!-- PAGE 1 PASSWORD -->
+<div class="page active">
+<h2>Enter Password 💗</h2>
+<input type="password" id="pass">
 <br>
+<button onclick="checkPass()">Open My Heart</button>
+</div>
 
-<!-- NEW TAMIL POEM -->
-<p style="font-size:18px; line-height:2;">
-உன் பெயரை சொல்லும் ஒவ்வொரு நொடிக்கும்  
-என் இதயம் ஒரு பாடல் பாடுகிறது…  
+<!-- PAGE 2 SLIDESHOW -->
+<div class="page">
+<img id="slide" src="IMG_20250408_180630.jpg">
+<button onclick="nextPage()">Next</button>
+</div>
 
-நீ என் வாழ்க்கையில் வந்தது  
-ஒரு சாதாரண நாள் இல்லை —  
-அது என் விதி எழுதிய திருப்புமுனை…  
+<!-- PAGE 3 ENGLISH LOVE LETTER -->
+<div class="page">
+<h2>My Love Letter 💌</h2>
+<p>
+My dearest Kutty,  
+From the moment you came into my life, everything became brighter and more meaningful.  
+You are my happiness, my comfort, my forever person.  
+Your love fills my heart with peace every single day.  
 
-உன் கண்களில் நான் பார்த்தது  
-என் எதிர்காலத்தின் ஒளி…  
-உன் கரங்களில் நான் உணர்ந்தது  
-என் உலகத்தின் பாதுகாப்பு…  
+Our little daughter is the most beautiful proof of our love.  
+She is our miracle, our blessing, our sweetest bond.  
+Seeing you as a loving parent makes me admire you even more.  
 
-நம்முடைய குழந்தை ❤️  
-நம் காதல் மலரின் இனிய வாசம்…  
-அவள்/அவன் சிரிப்பில்  
-நம் வாழ்க்கை முழுதும் ஒளிர்கிறது…  
-
-நீ அருகில் இருந்தால்  
-கஷ்டமும் இனிமையாகிறது…  
-நீ இல்லாத நொடிகள்  
-நிறமில்லா உலகம் போல…  
-
-உன் கையை பிடித்து  
-நாளையும்… நாளைக்கு அப்பாலும்…  
-என்றும் ஒன்றாய் நடக்க வேண்டும்…  
-
-நீ தான் என் மனதின் இசை…  
-நீ தான் என் உயிரின் துணை…  
-
-எப்போதும்…  
-என்றென்றும்…  
-I Love You Mama ❤️
+No matter what life brings, I promise to stand beside you always.  
+In every lifetime, I will choose you again and again.  
+You are my today, my tomorrow, my always.
 </p>
-
+<button onclick="nextPage()">Next</button>
 </div>
 
-<!-- QUIZ SECTION -->
-<div class="letter">
+<!-- PAGE 4 NEW TAMIL POEM -->
+<div class="page">
+<h2>என் இதயத்தின் பாடல் 💕</h2>
+<p>
+உன் பெயர் சொல்லும் தருணம்  
+என் இதயம் துடிக்கிறது இனிமையாக…  
 
-<h3>💞 A Little Love Quiz 💞</h3>
+உன் அருகில் இருக்கும் ஒவ்வொரு நொடியும்  
+என் வாழ்வின் பொக்கிஷமாகிறது…  
 
-<p>1. Who loves you the most? 😘</p>
-<button onclick="answer('correct')">You</button>
-<button onclick="answer('wrong')">Someone else</button>
+நம்முடைய மகள்  
+நம் காதலின் அழகான மலர்…  
 
-<br><br>
+உன் சிரிப்பே என் சக்தி  
+உன் அன்பே என் உலகம்…  
 
-<p>2. What are we forever? 💍</p>
-<button onclick="answer('correct')">Soulmates</button>
-<button onclick="answer('wrong')">Just friends</button>
-
-<br><br>
-
-<p>3. Who is the best parent to our baby? 👶❤️</p>
-<button onclick="answer('correct')">You</button>
-<button onclick="answer('wrong')">No idea</button>
-
-<br><br>
-
-<p>4. How long will we stay together? 💖</p>
-<button onclick="answer('correct')">Forever & Always</button>
-<button onclick="answer('wrong')">Few years</button>
-
-<br><br>
-
-<p>5. My favorite place? 🥰</p>
-<button onclick="answer('correct')">Beside You</button>
-<button onclick="answer('wrong')">Anywhere else</button>
-
-<p id="quizResponse" style="margin-top:20px; font-weight:bold;"></p>
-
+உன்னோடு வாழும் இந்த வாழ்க்கை  
+என் கனவின் நிறைவேற்றம்…  
+</p>
+<button onclick="nextPage()">Next</button>
 </div>
 
-<button onclick="finalSurprise()">Final Surprise 💖</button>
+<!-- PAGE 5 QUIZ -->
+<div class="page">
+<h2>Love Quiz 💞</h2>
 
-<div id="finalMessage" class="hidden">
-    <h1 class="dance-text">💖 I Love You As Always Mama 💖</h1>
+<div class="option">1. Who loves you forever? 💗 - You</div>
+<div class="option">2. What are we? 💍 - Soulmates</div>
+<div class="option">3. Our daughter is symbol of? 👶 - True Love</div>
+<div class="option">4. Who completes me? - You</div>
+<div class="option">5. My safe place? - Your arms</div>
+<div class="option">6. How long together? - Forever</div>
+<div class="option">7. My favorite name? - Kutty</div>
+<div class="option">8. Stronger than problems? - Our love</div>
+<div class="option">9. Who is my world? - You</div>
+<div class="option">10. I will love you? - Always</div>
+
+<button onclick="nextPage()">Next</button>
 </div>
 
+<!-- PAGE 6 FINAL -->
+<div class="page">
+<div class="final-text">
+I LOVE YOU AS ALWAYS KUTTY 💗
 </div>
 </div>
 
 <script>
+let pages=document.querySelectorAll(".page");
+let current=0;
+let music=document.getElementById("music");
 
-function checkPassword() {
-    var pass = document.getElementById("password").value;
-    if(pass === "Kuttyma") {
-        document.getElementById("login").style.display="none";
-        document.getElementById("mainContent").style.display="block";
-    } else {
-        alert("Wrong Password 💔");
-    }
+function checkPass(){
+let p=document.getElementById("pass").value;
+if(p==="Kuttyma"){
+music.play();
+pages[current].classList.remove("active");
+current++;
+pages[current].classList.add("active");
+}else{
+alert("Wrong Password 💔");
+}
 }
 
-function answer(type) {
-    var response = document.getElementById("quizResponse");
-
-    if(type === "correct") {
-        response.innerHTML = "Awww 🥰 Correct! You know our love perfectly 💖";
-        response.style.color = "yellow";
-    } else {
-        response.innerHTML = "Ohhh nooo 😜 Wrong answer! Try again my love ❤️";
-        response.style.color = "white";
-    }
+function nextPage(){
+pages[current].classList.remove("active");
+current++;
+if(current<pages.length){
+pages[current].classList.add("active");
+}
 }
 
-function finalSurprise() {
-    document.getElementById("finalMessage").style.display="block";
+let images=[
+"IMG_20250408_180630.jpg",
+"Snapchat-497653818.jpg"
+];
 
-    for(let i=0;i<25;i++){
-        let heart=document.createElement("div");
-        heart.innerHTML="💖";
-        heart.style.position="fixed";
-        heart.style.left=Math.random()*window.innerWidth+"px";
-        heart.style.top=Math.random()*window.innerHeight+"px";
-        heart.style.fontSize="30px";
-        document.body.appendChild(heart);
-
-        setTimeout(()=>heart.remove(),2000);
-    }
+let i=0;
+setInterval(function(){
+let slide=document.getElementById("slide");
+if(slide){
+i=(i+1)%images.length;
+slide.src=images[i];
 }
-
+},2500);
 </script>
 
 </body>
